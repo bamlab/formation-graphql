@@ -6,23 +6,23 @@
 1. `npm init` and fill the form
 1. `npm install --save apollo-server express body-parser graphql`
 1. `touch index.js`
-1. copy following code in `index.js`
+1. copy following code in `index.js` : two rooutes, one for api and the other for the validation graphiQL
 
   ```javascript
   const express = require('express');
   const bodyParser = require('body-parser');
-  const { apolloExpress } = require('apollo-server');
+  const { apolloExpress, graphiqlExpress } = require('apollo-server');
   const schema = require('./schema');
 
   const PORT = 3000;
 
   const app = express();
-  const parser = bodyParser.json();
-  const controller = apolloExpress({ schema });
 
-  app.use('/graphql', parser, controller);
+  app.use('/graphql', bodyParser.json(), apolloExpress({ schema }));
+  app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 
   app.listen(PORT);
+
   ```
 
 1. `npm install --save graphql-tools`
@@ -57,7 +57,7 @@
       vote: [Vote]
     }
     type Book {
-      title: string,
+      title: String,
       authors: [Author],
       votes: [Vote]
     }
@@ -65,7 +65,6 @@
       firstname: String!
       lastname: String!
       birthDate: String
-      votes: [Vote]
     }
     type Author implements Person {
       firstname: String!
@@ -77,6 +76,7 @@
       firstname: String!
       lastname: String!
       birthDate: String
+      votes: [Vote]
     }
     enum ANSWER {
       GLAD
@@ -100,6 +100,7 @@
   ```javascript
   const casual = require('casual');
   const { MockList } = require('graphql-tools');
+
   module.exports = {
     Author: () => ({
       firstname: () => casual.first_name,
