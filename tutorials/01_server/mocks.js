@@ -5,13 +5,13 @@ module.exports = {
   Author: () => ({
     firstname: () => casual.first_name,
     lastname: () => casual.last_name,
-    birthdate: () => casual.date(format = 'YYYY-MM-DD'),
+    birthDate: () => casual.date(format = 'YYYY-MM-DD'),
     books: () => new MockList(3),
   }),
   Bammer: () => ({
     firstname: () => casual.first_name,
     lastname: () => casual.last_name,
-    birthdate: () => casual.date(format = 'YYYY-MM-DD'),
+    birthDate: () => casual.date(format = 'YYYY-MM-DD'),
   }),
   Book: () => ({
     title: () => casual.title,

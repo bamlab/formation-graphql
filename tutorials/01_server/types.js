@@ -6,11 +6,12 @@ module.exports = [`
   type Query {
     books: [Book]
     bammers: [Bammer]
-    vote: [Vote]
+    votes: [Vote]
   }
   type Book {
-    title: String,
-    authors: [Author],
+    title: String
+    authors: [Author]
+    votes: [Vote]
   }
   interface Person {
     firstname: String!
