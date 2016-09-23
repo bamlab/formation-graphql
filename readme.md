@@ -8,7 +8,7 @@
 
 # Tutorials
 
-* [Setup a GraphQL server in 10 min](docs/setup_server_mocks.md) :heavy_check_mark:
+* [Setup a GraphQL server in 10 min](tutorials/01_server/readme.md) :heavy_check_mark:
 * Connect to a react app (soon)
 * Add Authorisation (soon)
 * Add Database (soon)
