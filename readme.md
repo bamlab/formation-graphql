@@ -7,6 +7,7 @@
 1. `npm install --save apollo-server express body-parser`
 1. `touch index.js`
 1. copy following code in `index.js`
+
   ```javascript
   import express from 'express';
   import bodyParser from 'body-parser';
@@ -23,9 +24,11 @@
 
   app.listen(PORT);
   ```
+
 1. `npm install --save graphql graphql-tools`
 1. `touch schema.js`
 1. copy following code in `schema.js`
+
   ```javascript
   import {
     buildSchemaFromTypeDefinitions,
@@ -39,8 +42,10 @@
 
   export default schema;
   ```
+
 1. `touch types.js`
 1. copy following code in `types.js`
+
   ```javascript
   export default [`
     schema {
@@ -87,9 +92,11 @@
     }
   `];
   ```
+
 1. `npm install --save casual`
 1. `touch mocks.js`
 1. copy following code in `mocks.js`
+
   ```javascript
   import { MockList } from 'graphql-tools';
   export default {
@@ -114,5 +121,4 @@
       comment: () => casual.string
     }
   }
-
   ```
